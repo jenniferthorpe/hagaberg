@@ -1,0 +1,11 @@
+.logo {
+ background-image: url('./hagaberg.png');
+ background-position: center;
+ background-size: cover;
+ height: 75px;
+ width: 190px;
+ position: relative;
+ top: 10px;
+ left: 50px;
+ rotate: -3deg;
+}

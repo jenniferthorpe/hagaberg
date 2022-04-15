@@ -1,0 +1,49 @@
+.background {
+  background-color: #686234;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  background-image: url(./dimma2.jpg);
+  width: 100%;
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+}
+
+.infoBox {
+  background-image: url('./ram.png');
+  background-size: 200px;
+  height: 215px;
+  background-repeat: no-repeat;
+  width: 215px;
+  /* text-align: center; */
+  color: #2C1E15;
+  border-radius: 2px;
+  margin: 20px;
+  /* background-color: #736E6F; */
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 25px;
+}
+
+.infobox div {
+  align-self: flex-start;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 500px) {
+  .background {
+
+  }
+
+  .image {
+
+  }
+}
