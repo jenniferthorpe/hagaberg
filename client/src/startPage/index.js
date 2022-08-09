@@ -1,16 +1,29 @@
 import React from 'react';
-import styles from './styles.module.css'
+import styles from './styles.module.css';
 
 const NEXT_MEETING = null;
 
 const StartPage = () => {
-  const [data, setData] = React.useState(null);
+  const [date, setFetchedDate] = React.useState(null);
 
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
+  React.useEffect(async () => {
+    callBackendAPI()
+      .then(res => setFetchedDate(res.data[0]))
+      .catch(err => console.log(err));
   }, []);
+
+  const callBackendAPI = async () => {
+    const data = await fetch("/get-date")
+      .then(res => {
+        if (res.status !== 200) {
+          throw Error(res.message)
+        }
+
+        return res.json()
+      })
+
+    return data;
+  }
 
   return (
     <div className={styles.background}>
@@ -18,7 +31,7 @@ const StartPage = () => {
       </div>
       <div className={styles.infoBox}>
         <div>Nästa föreningsmöte:</div>
-        <div>{!data ? "Loading..." : data}</div>
+        <div>{!date ? "Loading..." : date}</div>
         {NEXT_MEETING && (
           <div className={styles.bold}>åååå-mm-dd</div>
         )}
